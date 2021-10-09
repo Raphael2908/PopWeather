@@ -1,4 +1,5 @@
 # pop-weather
+A weather app that shows you places in pop culture with similar weather
 
 ## Project setup
 ```
