@@ -1,13 +1,15 @@
 <template>
 <main class="h-full w-full bg-no-repeat bg-cover" :style="{ backgroundImage: 'url(' + img + ')' }">
-  <section v-bind="place"
-  class="flex flex-row justify-center pt-20">
+  <section class="flex flex-row justify-center pt-20">
+    <Search
+    v-model:modelValue="SearchedLocation"> </Search>
     <Card> 
       <div class="flex flex-row justify-around"> 
         <h1 class="font-extrabold text-9xl font-mono ">{{ place.temperature }}</h1>
         <div class="pl-5 flex flex-col justify-center">
           <h3 class=""> {{ place.name }} </h3>
           <h3> {{ place.season }} </h3>
+          <h3>{{ Searchedlocation }}</h3>
         </div>
       </div>
     </Card>
@@ -16,31 +18,64 @@
 </template>
 
 <script>
-import Database from "../database/Database.vue"
 import Card from "../components/Card.vue"
-import { response } from "../Weather"
+import Search from "../components/Search.vue"
+
+import { Database }  from "../database/Database"
+import { getResponse } from "../Weather"
 
 export default {
   components: {
-    Card
+    Card,
+    Search
   },
   data(){
     return{
-      places: Database.data(),
-      img: this.CurrentImage(),
-      place: this.CurrentPlace()
+      Searchedlocation: "Singapore",
+      places: Database,
+      img: "",
+      place: Object,
+      actualLocation: Object
     }
   },
+  mounted(){
+    this.CurrentPlace();
+  },
   methods: {
-    CurrentImage(){
-      return "https://wallpaperaccess.com/full/897502.png"
-    },
     CurrentPlace(){
-      // Checks weather with database and returns place
-      console.log(response)
-      return Database.data().ZetaHalo
+      getResponse(this.Searchedlocation).then(data => {
+        // Variables
+        console.log("Data Loaded" + data)
+        let weatherData = data;
+        let temp = weatherData.current.temp_c;
+        let dbTemps = []
+        let closestTemp = 0
+        let popLocation = ""
+        
+        // Get all the temperature from database
+        for (const item in this.places) {
+          dbTemps.push(this.places[item].temperature)
+        }
+
+        dbTemps.reduce((a,b)=>{
+          return closestTemp = Math.abs(b - temp) < Math.abs(a - temp)? b : a 
+        })
+
+        for (const item in this.places) {
+          if(this.places[item].temperature == closestTemp){
+            popLocation = this.places[item]
+            this.place = popLocation
+            this.img = popLocation.img
+            this.actualLocation = weatherData.location
+          }
+          else {
+            continue
+          }
+        }
+
+      });
     }
-  }
+  },
 }
 </script>
 

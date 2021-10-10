@@ -1,14 +1,10 @@
+const key = process.env.VUE_APP_WEATHER_API_KEY;
 
-const address = `http://api.weatherapi.com/v1/current.json?key=8d352cf8afdb424783094702210910&q=London&aqi=no`;
-const http = new XMLHttpRequest();
 
-http.open("GET", address);
-http.send()
-
-let response = String;
-http.onreadystatechange = () =>{
-    response = http.responseText
-    console.log(http.responseText);
+export async function getResponse(location) {
+    let address = `http://api.weatherapi.com/v1/current.json?key=${key}&q=${location}&aqi=no`
+    const response = await fetch(address, {
+        method: "GET",
+    })
+    return response.json()
 }
-
-export { response }
