@@ -1,17 +1,20 @@
 <template>
-<main class="h-full w-full bg-no-repeat bg-cover" :style="{ backgroundImage: 'url(' + img + ')' }">
-   <search @search="doSearch"></search>
-  <section class="flex flex-row justify-center pt-20">
-    <Card> 
-      <div class="flex flex-row justify-around"> 
-        <h1 class="font-extrabold text-9xl font-mono ">{{ place.temperature }}</h1>
-        <div class="pl-5 flex flex-col justify-center">
-          <h3 class=""> {{ place.name }} </h3>
-          <h3> {{ place.season }} </h3>
-          <h3>{{ Searchedlocation }}</h3>
+<main class="h-full w-full bg-no-repeat bg-cover " :style="{ backgroundImage: 'url(' + img + ')' }">
+   
+  <section class="flex flex-row justify-center">
+    <div class="flex flex-col">
+      <search @search="doSearch"></search>
+      <Card> 
+        <div class="flex flex-row justify-around"> 
+          <h1 class="font-extrabold text-9xl font-mono ">{{ actualWeather.temp_c }}°C </h1>
+          <div class="pl-5 flex flex-col justify-center">
+            <h3 class=""> {{ place.name }} </h3>
+            <h3> {{ place.season }} </h3>
+            <h3>{{ Searchedlocation }}</h3>
+          </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </div>
   </section>
 </main>
 </template>
@@ -34,7 +37,8 @@ export default {
       places: Database,
       img: "",
       place: Object,
-      actualLocation: Object
+      actualLocation: Object,
+      actualWeather: Object
     }
   },
   mounted(){
@@ -63,9 +67,12 @@ export default {
         for (const item in this.places) {
           if(this.places[item].temperature == closestTemp){
             popLocation = this.places[item]
+            // Return Importan Variables
             this.place = popLocation
             this.img = popLocation.img
             this.actualLocation = weatherData.location
+            this.actualWeather = weatherData.current
+            return
           }
           else {
             continue

@@ -19,7 +19,7 @@ const Database = {
     name: "Tattoine",
     temperature: "34",
     season: "Summer",
-    img: "https://wallpaperaccess.com/full/2724440.jpg",
+    img: "https://img.wallpapersafari.com/desktop/1920/1080/32/51/bvneSQ.jpg",
     origin: "Star Wars"
   }
 }
