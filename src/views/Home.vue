@@ -1,8 +1,7 @@
 <template>
 <main class="h-full w-full bg-no-repeat bg-cover" :style="{ backgroundImage: 'url(' + img + ')' }">
+   <search @search="doSearch"></search>
   <section class="flex flex-row justify-center pt-20">
-    <Search
-    v-model:modelValue="SearchedLocation"> </Search>
     <Card> 
       <div class="flex flex-row justify-around"> 
         <h1 class="font-extrabold text-9xl font-mono ">{{ place.temperature }}</h1>
@@ -74,6 +73,10 @@ export default {
         }
 
       });
+    }, 
+    doSearch(event){
+      this.Searchedlocation = event
+      this.CurrentPlace()
     }
   },
 }
