@@ -49,7 +49,7 @@ const Database = {
     name: "Asgard",
     temperature: 7.5,
     season: "Winter",
-    img: "https://d1lss44hh2trtw.cloudfront.net/assets/article/2020/11/11/reclaiming-europa-quest-destiny-2_feature.jpg"
+    img: "https://wallpaperaccess.com/full/1135531.jpg"
   } 
 }
 
