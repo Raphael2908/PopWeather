@@ -1,8 +1,8 @@
 <template>
-<main class="h-full w-full bg-no-repeat bg-cover " :style="{ backgroundImage: 'url(' + img + ')' }">
-   
-  <section class="flex flex-row justify-center content-center	">
-    <div class="flex flex-col">
+<main class="h-full bg-no-repeat bg-cover " :style="{ backgroundImage: 'url(' + img + ')' }">
+  <section class="flex flex-row justify-center content-center">
+
+    <div class="flex flex-col gap-10 p-10">
       <search @search="doSearch"></search>
       <Card> 
         <div class="flex flex-row justify-center flex-wrap "> 
@@ -15,6 +15,7 @@
         </div>
       </Card>
     </div>
+
   </section>
 </main>
 </template>

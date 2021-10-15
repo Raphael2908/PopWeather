@@ -1,14 +1,14 @@
 <template>
-<div class="max-h-screen h-screen w-screen ">
-  <Home/>
+<div class="h-full h-screen bg-gray-600">
+  <AppHeader/>
 </div>
 </template>
 
 <script>
-import Home from "../src/views/Home.vue"
+import AppHeader from "@/components/AppHeader.vue"
 export default {
   components: {
-    Home
+    AppHeader,
   }
 }
 </script>

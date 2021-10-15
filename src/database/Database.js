@@ -1,3 +1,4 @@
+
 const Database = { 
 	// Halo 
 	ZetaHalo: {
@@ -50,7 +51,7 @@ const Database = {
     temperature: 7.5,
     season: "Winter",
     img: "https://wallpaperaccess.com/full/1135531.jpg"
-  } 
+  }, 
 }
 
 export { Database }
