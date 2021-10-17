@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Reference from '@/views/Reference.vue'
+import SpecificRef from '@/views/SpecificRef.vue'
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     name: 'reference',
     component: Reference
   },
+  {
+    path: '/reference/:name',
+    name: 'reference of :name',
+    component: SpecificRef
+  }
 ]
 
 const router = createRouter({

@@ -1,5 +1,5 @@
 <template>
-<div class="h-full h-screen bg-gray-600">
+<div class="h-full min-h-screen">
   <AppHeader/>
 </div>
 </template>

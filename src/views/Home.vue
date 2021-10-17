@@ -1,9 +1,11 @@
 <template>
-<main class="h-full bg-no-repeat bg-cover " :style="{ backgroundImage: 'url(' + img + ')' }">
+<main class="h-screen bg-no-repeat bg-cover " :style="{ backgroundImage: 'url(' + img + ')' }">
   <section class="flex flex-row justify-center content-center">
 
     <div class="flex flex-col gap-10 p-10">
-      <search @search="doSearch"></search>
+      <search
+      class="shadow-2xl" 
+      @search="doSearch"></search>
       <Card> 
         <div class="flex flex-row justify-center flex-wrap "> 
             <h1 class="font-extrabold text-8xl sm:text-9xl font-mono ">{{ actualWeather.temp_c }}°C </h1>

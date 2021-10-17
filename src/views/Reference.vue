@@ -1,30 +1,28 @@
 <template>
-  <section class="w-full h-screen flex flex-row justify-center">
-    <div class="text-white text-3xl font-bold">
-      <h1 class="text-center">References</h1>
-      <section class="grid md:grid-cols-3 sm:grid-cols-1 gap-7 mt-10 grid-rows-2 ">
-        <article
-        class="bg-opacity-10 bg-white h-64 rounded-xl" 
-        v-for="Data in Visible" :key="Data.name">
-          <img class="w-full h-1/2 rounded-t-xl"  :src="Data.img" alt="">
-          <div class="flex flex-col pl-2">
-            <h3 class="text-base font-light"> {{ Data.name }}</h3>
-          </div>
-        </article>
-      </section>
-      
-      <div class="flex justify-around">
-        <button @click="Next()">Next</button>
-        <button>Previous</button>
-      </div>
+  <section class="h-full w-full bg-gray-600 ">
+    <h1 class="text-center mb-10 text-white text-lg">References</h1>
+    <div class="flex justify-center">
+    <div 
+    class="grid md:grid-cols-3 col-span-1 gap-5 justify-items-center place-content-center">
+      <DisplayCard v-for="data in Database" :key="data.name"
+      :img="data.img">
+        <h1 class="text-lg font-semibold"> {{ data.name }} </h1>
+        <h3 class=""> {{ data.description }} </h3>
+      </DisplayCard>
+    </div>
     </div>
   </section>
 </template>
 
 <script>
 import { Database }  from "../database/Database"
+import DisplayCard from "../components/DisplayCard.vue"
+
 
 export default {
+  components:{
+    DisplayCard
+  },
   data(){
     return{
       Database: Database,
@@ -33,15 +31,10 @@ export default {
     }
   },
   mounted(){
-    for (let index = 0; index < 3; index++) {
-      const element = Object.values(Database)[index];
-      this.Visible.push(element)
-      console.log(this.Visible.length)
-    }
   },
   method: {
     Next(){
-
+      
     }
   }
 }
