@@ -1,14 +1,13 @@
 <template>
-    <section class="h-full w-full bg-blue-800">
-        hello {{ $route.params.name }}
+    <section class="h-screen bg-gray-600 text-white flex justify-center">
+        <h1>Hello {{$route.params.name}}</h1>
     </section>
 </template>
 
 <script>
 export default {
-    computed:{
-        ReferenceName(){
-        return this.$route.param.name
+    data(){
+        return{
         }
     }
 }

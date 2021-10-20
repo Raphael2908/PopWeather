@@ -7,7 +7,7 @@ const Database = {
     season: "Auttum",
     img: "https://cdn.mos.cms.futurecdn.net/pXxzs8aTb7dXSyNtUaRcQf.jpg",
     origin: "Halo",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    description: "Installation 07, also known as Zeta Halo and originally known as Gyre 11 is one of the seven rings in the Halo Array, located in the Sagittarius Arm of the Milky Way galaxy. Unlike the other six remaining Halo installations, which were constructed as a separate array of rings with the diameter of 10,000 kilometers,[8] Installation 07 is the only surviving ring from the original main array of twelve 30,000-kilometer-wide Halos.[9] However, the installation's diameter was reduced to 10,000 kilometers after most of its superstructure was discarded as a result of heavy damage.[10] ONI scientists consider it to be the most mysterious Halo of all.[4]"
   },
   Reach: {
     name: "Reach",

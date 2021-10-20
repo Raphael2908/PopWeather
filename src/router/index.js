@@ -11,12 +11,12 @@ const routes = [
   },
   {
     path: '/reference',
-    name: 'reference',
+    name: 'reference.index',
     component: Reference
   },
   {
     path: '/reference/:name',
-    name: 'reference of :name',
+    name: 'specific',
     component: SpecificRef
   }
 ]

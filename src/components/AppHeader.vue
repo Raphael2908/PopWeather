@@ -9,7 +9,7 @@
       <router-link to="/">
         <button class="p-1 pl-5 w-full text-left rounded-xl hover:bg-gray-100 hover:bg-opacity-20 font-medium" >Home</button>
       </router-link>
-      <router-link to="/reference">
+      <router-link :to="{name: 'reference.index' }">
         <button class="p-1 pl-5 w-full text-left rounded-xl hover:bg-gray-100 hover:bg-opacity-20 font-medium" >Reference</button>
       </router-link>
     </div>
