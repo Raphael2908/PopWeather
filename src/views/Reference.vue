@@ -4,17 +4,17 @@
     <div class="flex justify-center">
     <div 
     class="grid md:grid-cols-3 col-span-1 gap-5 justify-items-center place-content-center mb-10">
-      <router-link 
+      <!-- <router-link 
       v-for="data in Database" :key="data.name"
-      :to="{name: 'specific', params:{ name: data.name, location: data} }">
-        <DisplayCard :img="data.img">
+      :to="{name: 'specific', params:{ name: data.name, location: data} }"> -->
+        <DisplayCard v-for="data in Database" :key="data.name" :img="data.img">
         <div class="flex flex-col gap-1">
           <h1 class="text-lg font-semibold"> {{ data.name }} </h1>
           <h1>Origin: {{ data.origin }} </h1>
           <h3 class="h-36 overflow-ellipsis overflow-hidden"> {{ data.description }} </h3>
         </div>
       </DisplayCard>
-      </router-link>
+      <!-- </router-link> -->
     </div>
     </div>
   </section>

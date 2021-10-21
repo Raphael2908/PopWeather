@@ -6,8 +6,12 @@
       <search
       class="shadow-2xl" 
       @search="doSearch"></search>
-      <Card> 
-        <div class="flex flex-row justify-center flex-wrap "> 
+      <Card v-if="clock" @click="clock = !clock">
+        <h1 class="font-extrabold text-8xl sm:text-9xl font-mono ">{{ locationTime }}</h1>
+        <h3 class="pl-3">{{ locationDate }}</h3>
+        </Card> 
+      <Card v-if="!clock" @click="clock = !clock" > 
+        <div class="flex flex-row justify-center flex-wrap"> 
             <h1 class="font-extrabold text-8xl sm:text-9xl font-mono ">{{ actualWeather.temp_c }}°C </h1>
           <div class="pl-5 flex flex-col justify-center text-left">
             <h3 class="font-semibold"> {{ Searchedlocation }} </h3>
@@ -39,9 +43,12 @@ export default {
       Searchedlocation: "Singapore",
       places: Database,
       img: "",
+      clock: false,
       place: Object,
       actualWeather: Object,
       actualWeatherCon:Object,
+      locationTime: String,
+      locationDate: String
     }
   },
   mounted(){
@@ -75,6 +82,12 @@ export default {
             this.img = popLocation.img
             this.actualWeather = weatherData.current
             this.actualWeatherCon = weatherData.current.condition
+            this.locationTime = new Date(weatherData.location.localtime).toLocaleTimeString(
+              'en-us',{ hour: '2-digit', minute: '2-digit' }
+            )
+            this.locationDate = new Date(weatherData.location.localtime).toLocaleDateString(
+              'en-us',{ weekday: 'short', month: 'short', day:'numeric'}
+            )
             return
           }
           else {
